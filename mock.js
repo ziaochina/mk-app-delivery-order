@@ -664,9 +664,9 @@ function initMockData() {
                 voucherNO: i % 2 == 1 ? '' : 'VO' + (10000 + i),
                 receiptNumber: i % 2 == 1 ? '' : 'RE' + (10000 + i),
                 amount: 100,
-                priceTaxTotal: 130,
-                paidAmount: i % 2 == 1 ? 80 : 100,
-                unpaidAmount: i % 2 == 1 ? 20 : 0,
+                priceTaxTotal: 105,
+                paidAmount: 105 - (i % 3) * 10,
+                unpaidAmount: (i % 3) * 10,
                 isAudit: i % 3 == 0,
                 memo: '备注' + i,
                 settlementMode: { id: 1, name: '现结' },
@@ -692,11 +692,11 @@ function initMockData() {
 
 fetch.mock('/v1/deliveryOrder/init', (option) => {
     initMockData()
-
+debugger
     return {
         result: true,
         value: {
-            voucher: (option.id || option.id == 0) ? mockData.vouchers.find(o => o.id == option.id) : undefined,
+            voucher: (option.id || option.id == 0) ? mockData.deliveryOrders.find(o => o.id == option.id) : undefined,
             stocks: mockData.stocks,
             customers: mockData.customers,
             ticketTypes: mockData.ticketTypes,

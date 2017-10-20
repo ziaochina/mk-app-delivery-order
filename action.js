@@ -26,7 +26,7 @@ class action {
 
     load = async () => {
         const payload = {}
-        const response = await this.webapi.deliveryOrder.init({ id: this.component.props.voucherId })
+        const response = await this.webapi.deliveryOrder.init({ id: this.component.props.deliveryOrderId })
         this.injections.reduce('load', response)
     }
 
