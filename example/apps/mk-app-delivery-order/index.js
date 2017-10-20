@@ -3,7 +3,7 @@ import * as data from './data'
 
 export default {
 	name: "mk-app-delivery-order",
-	version: "1.0.5",
+	version: "1.0.0",
 	description: "mk-app-delivery-order",
 	meta: data.getMeta(),
 	components: [],
